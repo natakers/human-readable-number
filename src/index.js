@@ -17,13 +17,19 @@ module.exports = function toReadable (number) {
 	if (number<999 && number>100) {
 		// n=n/100;
 		str = str + arrHundred[Math.floor(number/100)];
-		if (Math.floor(number%100/10) != 0) {
-			str = str + " " + arrDozens[Math.floor(number%100/10)];
+		if (Math.floor(number%100/10) < 20) {
+			str = str + " " + arr[number];
 			if (number%10 != 0) {
 				str = str + " " + arr[number%10];
 			}
 		}
+		else {
+			str = str + " " + arrDozens[Math.floor(number%100/10)];
+			if (number%10 != 0) {
+				str = str + " " + arr[number%10];
+		}
 		
 	}
+
 	return str;
 }
