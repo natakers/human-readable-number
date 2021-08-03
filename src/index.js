@@ -19,10 +19,11 @@ module.exports = function toReadable (number) {
 		str = str + arrHundred[Math.floor(number/100)];
 		if (Math.floor(number%100/10) != 0) {
 			str = str + " " + arrDozens[Math.floor(number%100/10)];
+			if (number%10 != 0) {
+				str = str + " " + arr[number%10];
+			}
 		}
-		if (number%10 != 0) {
-			str = str + " " + arr[number%10];
-		}
+		
 	}
 	return str;
 }
